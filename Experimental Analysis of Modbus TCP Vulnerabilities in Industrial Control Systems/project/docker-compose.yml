@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+
+  modbus:
+    build: ./modbus
+    container_name: modbus_device
+    ports:
+      - "502:502"
+    networks:
+      - ot_net
+
+  ftp:
+    build: ./ftp
+    container_name: ftp_server
+    ports:
+      - "21:21"
+    networks:
+      - it_net
+
+  telnet:
+    build: ./telnet
+    container_name: telnet_server
+    ports:
+      - "23:23"
+    networks:
+      - it_net
+
+  ssh:
+    build: ./ssh
+    container_name: ssh_server
+    ports:
+      - "22:22"
+    networks:
+      - it_net
+
+  scanner:
+    build: ./scanner
+    container_name: scanner
+    networks:
+      - it_net
+      - ot_net
+    tty: true
+
+networks:
+  it_net:
+  ot_net:

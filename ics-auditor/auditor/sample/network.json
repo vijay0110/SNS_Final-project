@@ -1,0 +1,31 @@
+{
+  "hosts": {
+    "PLC1": {
+      "open_ports": [
+        502
+      ]
+    },
+    "FTP-SERVER": {
+      "open_ports": [
+        21
+      ]
+    },
+    "SSH-SERVER": {
+      "open_ports": [
+        22
+      ]
+    },
+    "IT-MGMT": {
+      "open_ports": [
+        22,
+        23
+      ]
+    }
+  },
+  "edges": [
+    {
+      "src": "IT-MGMT",
+      "dst": "PLC1"
+    }
+  ]
+}

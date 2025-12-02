@@ -1,0 +1,26 @@
+version: '3'
+services:
+
+  modbus:
+    build: ./services/modbus
+    ports:
+      - "502:502"
+
+  ftp:
+    build: ./services/ftp
+    ports:
+      - "2121:21"
+
+  ssh:
+    build: ./services/ssh
+    ports:
+      - "2222:22"
+
+  auditor:
+    build: ./auditor
+    depends_on:
+      - modbus
+      - ftp
+      - ssh
+    volumes:
+      - ./auditor/output:/app/output

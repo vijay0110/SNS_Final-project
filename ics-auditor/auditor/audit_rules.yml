@@ -1,0 +1,7 @@
+dangerous_ports:
+  - 21
+  - 23
+  - 502
+
+forbidden_it_to_ot:
+  - "IT-MGMT -> PLC1"
